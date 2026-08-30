@@ -1,0 +1,9 @@
+*.img
+*.img.*
+*.key
+*.key.*
+.private.key
+.env
+.env.*
+credentials*
+secrets*
