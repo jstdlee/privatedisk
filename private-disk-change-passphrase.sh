@@ -3,6 +3,7 @@ set -eu
 
 IMG="${HOME}/private.img"
 TARGET="${HOME}/private"
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 
 [ -f "$IMG" ] || {
     printf '%s\n' "Private Disk: missing ${IMG}" >&2
@@ -10,7 +11,7 @@ TARGET="${HOME}/private"
 }
 
 if [ -L "$TARGET" ] || [ -e "$TARGET" ]; then
-    "${HOME}/dev/privatedisk/private-disk-unmount.sh" || exit 1
+    "${SCRIPT_DIR}/private-disk-unmount.sh" || exit 1
 fi
 
 printf '%s\n' "Enter the current passphrase, then choose the new passphrase twice."
